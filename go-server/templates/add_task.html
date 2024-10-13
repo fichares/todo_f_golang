@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App - Home</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="logo">
+      <h1>Todo App</h1>
+    </div>
+    <div class="user-info">
+      <p>Welcome, qqq</p>
+    </div>
+  </div>
+</header>
+<style>
+
+
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+  }
+
+  input[type="text"],
+  textarea,
+  input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; /* Add this line */
+  }
+
+  textarea {
+    resize: vertical; /* Allows vertical resizing only */
+  }
+
+  button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background-color: #218838;
+  }
+</style>
+
+<h2>Добавление новой задачи</h2>
+<form action="/add_task_in table" method="post" name="add_task">
+  <div class="form-group">
+    <label for="taskName">Название:</label>
+    <input type="text" id="taskName" name="taskName" required>
+  </div>
+  <div class="form-group">
+    <label for="taskDescription">Описание:</label>
+    <textarea id="taskDescription" name="taskDescription" rows="4" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="dueDateTime">Когда надо выполнить:</label>
+    <input type="datetime-local" id="dueDateTime" name="dueDateTime" required>
+  </div>
+  <button type="submit">Добавить задачу</button>
+</form>
+
+
+<footer>
+  <p>&copy; 2024 Todo App. All rights reserved.</p>
+</footer>
+</body>
+</html>
+

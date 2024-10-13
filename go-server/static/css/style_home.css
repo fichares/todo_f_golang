@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+
+.welcome-box h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #444;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-box p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.features, .testimonials, .contact {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.features h2, .testimonials h2, .contact h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.features ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.features li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.testimonials blockquote {
+    font-style: italic;
+    margin: 20px 0;
+    padding: 10px;
+    border-left: 5px solid #4CAF50;
+    color: #666;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.contact p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.form-container {
+    display: none; /* По умолчанию формы скрыты */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+/* Внутренние элементы формы */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Кнопки для отправки форм */
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Кнопки для переключения между формами (стили совпадают с кнопками login-btn и register-btn) */
+#showFormBtn, #showLoginFormBtn {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#showFormBtn:hover, #showLoginFormBtn:hover {
+    background-color: #007B9E;
+}
+
+/* Основные стили для модального окна */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Окно фиксировано на экране */
+    z-index: 1; /* Отображение поверх других элементов */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Добавить прокрутку, если необходимо */
+    background-color: rgba(0, 0, 0, 0.4); /* Фон с прозрачностью */
+}
+
+/* Стили для содержимого модального окна */
+.modal-content {
+    background-color: #fefefe;
+
+    margin: 15% auto; /* Центрирование */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ширина окна */
+    max-width: 500px; /* Максимальная ширина */
+    border-radius: 10px; /* Закругленные углы */
+}
+
+/* Стили для кнопки закрытия */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Оставшиеся стили для форм */
+.form-container {
+    display: none; /* Скрыто по умолчанию */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to TODO</title>
+  <link rel="stylesheet" href="/static/css/style_home.css">
+</head>
+<body>
+<div class="container">
+  <div class="welcome-box">
+    <h1>Welcome to TODO</h1>
+    <p>Manage your tasks easily and stay organized with our simple and intuitive task management tool.</p>
+    <div class="buttons">
+      <button id="showLoginFormBtn" class="btn login-btn">Log In</button>
+      <button id="showFormBtn" class="btn login-btn">Sign in</button>
+    </div>
+  </div>
+
+  <div class="features">
+    <h2>Features</h2>
+    <ul>
+      <li><strong>Easy Task Management:</strong> Create, edit, and delete tasks in just a few clicks.</li>
+      <li><strong>Set Deadlines:</strong> Never miss a deadline by setting reminders for your tasks.</li>
+      <li><strong>Prioritize Tasks:</strong> Mark tasks as important and focus on what matters.</li>
+      <li><strong>Collaborate:</strong> Share your tasks with friends and colleagues for better teamwork.</li>
+    </ul>
+  </div>
+
+  <div class="testimonials">
+    <h2>User Testimonials</h2>
+    <blockquote>
+      <p>"This app has changed the way I organize my life! Highly recommend!" - Alex J.</p>
+    </blockquote>
+    <blockquote>
+      <p>"A simple and effective tool for managing my daily tasks. Love it!" - Sarah K.</p>
+    </blockquote>
+  </div>
+
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <div id="registrationForm" class="form-container">
+      <form action="/registration" method="POST">
+        <h2>Регистрация</h2>
+        <label for="username">Имя пользователя</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Пароль</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+
+    <div id="loginForm" class="form-container">
+      <form  action="/authz" method="POST">
+        <h2>Вход</h2>
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" name="loginEmail" required>
+
+        <label for="loginPassword">Пароль</label>
+        <input  id="loginPassword" name="loginPassword" required>
+
+        <button type="submit">Войти</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Находим кнопки и формы по их ID
+  const showFormBtn = document.getElementById('showFormBtn');
+  const showLoginFormBtn = document.getElementById('showLoginFormBtn');
+  const modal = document.getElementById('modal');
+  const closeBtn = document.querySelector('.close-btn');
+  const registrationForm = document.getElementById('registrationForm');
+  const loginForm = document.getElementById('loginForm');
+  loginForm.style.display = 'none';
+  registrationForm.style.display = 'none';
+  // Обработчик на кнопку "Зарегистрироваться"
+  showFormBtn.addEventListener('click', function() {
+    modal.style.display = 'block'; // Показать модальное окно
+    registrationForm.style.display = 'block'; // Показать форму регистрации
+    loginForm.style.display = 'none'; // Скрыть форму входа
+  });
+
+  // Обработчик на кнопку "Войти"
+  showLoginFormBtn.addEventListener('click', function() {
+    modal.style.display = 'block'; // Показать модальное окно
+    loginForm.style.display = 'block'; // Показать форму входа
+    registrationForm.style.display = 'none'; // Скрыть форму регистрации
+  });
+
+  // Закрытие модального окна
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none'; // Скрыть модальное окно
+  });
+
+  // Закрытие модального окна при клике вне формы
+  window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none'; // Скрыть модальное окно
+    }
+  });
+
+</script>
+
+</body>
+</html>

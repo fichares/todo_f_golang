@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+header h1 {
+    font-size: 28px;
+}
+
+.user-info p {
+    font-size: 18px;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.todo-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.todo-list {
+    margin-bottom: 40px;
+}
+
+.todo-list h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.todo-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.todo-list ul li {
+    background-color: #e7f5e9;
+    margin: 10px 0;
+    padding: 10px;
+    border-left: 5px solid #4CAF50;
+    border-radius: 4px;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+.add_task_img{
+    position: fixed;
+    height: 7%;
+    width: 5%;
+    left: 73%;
+    top: 105PX;
+}
+
+.task-details {
+    display: none; /* Скрыть детали по умолчанию */
+    margin-top: 10px;
+    padding: 15px;
+    border-top: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+.change_task_data_task_img{
+    position: relative;
+    height: 7%;
+    width: 5%;
+    left: 45%;
+    top: 10%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+
+}
+
+/* Контейнер для выпадающего списка */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+/* Скрытое содержимое выпадающего списка */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Стили для ссылок в выпадающем списке */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Ссылки выпадающего списка при наведении */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Показать выпадающий список при наведении */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Изменить цвет кнопки при наведении */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.place_dropdown{
+    position: absolute;
+    top: 50px;
+    margin-left: 2%;
+}

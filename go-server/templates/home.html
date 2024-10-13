@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Home</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="logo">
+            <h1>Todo App</h1>
+        </div>
+        <div class="user-info">
+            <p>Welcome, {{ .username }}</p>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="todo-container">
+        <h2>Your Todo Lists</h2>
+
+        <div class="todo-list">
+            <h3>Work Tasks</h3>
+
+            <ul>
+                {{ range .tasks }}
+
+                <li class="task-item {{ if .Completed }}completed{{ else }}not-completed{{ end }}" onclick="toggleDetails(this)">
+                    <h2 class="task-title">{{ .Title }}
+                        <a href="/change_record/{{ .Uuid }}"> <img src="/static/images/change_data.png" alt="change task" class="change_task_data_task_img">
+                        </a>
+                    </h2>
+                    <p class="task-deadline">Дедлайн: {{ .DueDate.Format "02 Jan 2006 15:04" }}</p>
+
+                    <div class="task-status">
+                        <span class="status-label">{{ if .Completed }}Выполнено{{ else }}Не выполнено{{ end }}</span>
+                    </div>
+                    <div class="task-details">
+                        <p><strong>Описание:</strong> {{ .Description }}</p>
+                        <p><strong>Создано:</strong> {{ .Created_at.Format "02 Jan 2006 15:04" }}</p>
+                        <p><strong>Статус:</strong> {{ if .Completed }}Выполнено{{ else }}Не выполнено{{ end }}</p>
+                    </div>
+                </li>
+                {{ end }}
+            </ul>
+
+        </div>
+    </div>
+    </div>
+</main>
+<a href="/add_task"> <img src="/static/images/add_task.jpg" alt="add task" class="add_task_img">
+</a>
+<footer>
+    <p>&copy; 2024 Todo App. All rights reserved.</p>
+</footer>
+
+
+<script>
+    function toggleDetails(taskItem) {
+        const details = taskItem.querySelector('.task-details');
+        details.style.display = (details.style.display === 'block') ? 'none' : 'block';
+    }
+</script>
+
+<div class="place_dropdown">
+
+
+
+    <form action="/home/filter_tasks" method="POST" class="place_dropdown">
+        <label for="category">Completed:</label>
+        <select id="category" name="filter1">
+            <option  value="True">True</option>
+            <option  value="False">False</option>
+        </select>
+
+        <label for="subcategory">Deadline/Creation:</label>
+        <select id="subcategory" name="filter2">
+            <option  value="Early deadline">Early deadline</option>
+            <option  value="Late deadline">Late deadline</option>
+            <option  value="Early creation">Early creation</option>
+            <option  value="Late creation">Late creation</option>
+        </select>
+        <input type="submit" value="Фильтровать">
+    </form>
+
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
+
