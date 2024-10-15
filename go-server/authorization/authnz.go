@@ -88,6 +88,31 @@ func RegisterUser(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal("failed create table: %v", err)
 	}
+	func_for_triigger := `
+						CREATE OR REPLACE FUNCTION check_deadline()
+						RETURNS TRIGGER AS $$
+						BEGIN
+						IF NEW.duedate <= NOW() + INTERVAL '1 hour' THEN
+							NEW.notify := TRUE;
+						END IF;
+						RETURN NEW;
+						END;
+						$$ LANGUAGE plpgsql;
+						`
+	_, err = db.Exec(func_for_triigger)
+	if err != nil {
+		log.Fatal("failed create func_for_triigger: %v", err)
+	}
+	querry_triger := `
+	CREATE TRIGGER set_notify_tasks_before_deadline
+	BEFORE INSERT OR UPDATE ON task
+	FOR EACH ROW
+	EXECUTE FUNCTION check_deadline();
+					`
+	_, err = db.Exec(querry_triger)
+	if err != nil {
+		log.Fatal("failed create trigger: %v", err)
+	}
 	username := r.FormValue("username")
 	password := r.FormValue("password")
 	email := r.FormValue("email")

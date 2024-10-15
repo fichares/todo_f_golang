@@ -25,4 +25,5 @@ type Task struct {
 	DueDate     time.Time `json:"due_date,omitempty"`
 	UserId      int       `json:"user_id,omitempty"`
 	Uuid        uuid.UUID `json:"uuid,omitempty"`
+	Notified    bool      `json:"notified,omitempty"`
 }

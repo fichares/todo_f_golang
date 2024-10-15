@@ -333,5 +333,8 @@ func Filte_Tasks_Home(w http.ResponseWriter, r *http.Request) {
 		defer db.Close()
 
 	}
+}
+
+func Push_Notify(w http.ResponseWriter, r *http.Request) {
 
 }
